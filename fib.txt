@@ -1,0 +1,34 @@
+MOV 0x64 0xC102    MOV 100, compareB  
+MOV 0x65 0xC101    MOV addrdone, Compare_addr2 
+MOV 0x66 0xC100    MOV 6, Compare_addr1
+MOV 0x67 0x8001    MOV 1, T2
+MOV 0x8000 0xc000  MOV T1, ALU1 
+MOV 0x8001 0c020   MOV T2, ALU2 
+MOV 0x8001 0x8000  MOV T2, T1 
+MOV 0xC012 0x8001  MOV ALU_O, T2 
+MOV 0x8001 0xfe00  MOV T2, GPIO 
+MOV 0x8002 0xC000  MOV CNT, ALU1  
+MOV 0x0067 0xC020  MOV 1, ALU2 
+MOV 0xC012 0x8002  MOV ALU_O, CNT 
+MOV 0x8002 0xC103  MOV CNT, CompareA 
+MOV 0xC100 0xFFFF  MOV Compare_O, PC 
+MOV 0x65 0xFFFF    MOV addrdone, PC //just a loop 
+
+           
+MOV 4, Compare_addr1          
+MOV addrdone, Compare_addr2 
+MOV T1, ALU1                  
+MOV T2, ALU2                  
+MOV T2, T1                    
+MOV ALU_O, T2
+MOV T2, GPIO
+MOV CNT, ALU1 
+MOV 1, ALU2
+MOV ALU_O, CNT
+MOV CNT, CompareA
+MOV Compare_O, PC
+
+
+Comp: 0xC100, C101 addresses. C102 comp, C103 comp
+GPIO: FE00
+ALU: 0xC000, 0xC020, add 0xC012
